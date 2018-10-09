@@ -1,0 +1,24 @@
+let value = 0;
+(value)? console.log(`${value} is considered true`) : console.log(`${value} is considered false`);
+value = null;
+(value)? console.log(`${value} is considered true`) : console.log(`${value} is considered false`);
+value = undefined;
+(value)? console.log(`${value} is considered true`) : console.log(`${value} is considered false`);
+value = "''";
+(value)? console.log(`${value} is considered true`) : console.log(`${value} is considered false`);
+value = NaN;
+(value)? console.log(`${value} is considered true`) : console.log(`${value} is considered false`);
+
+console.log('#'.repeat(80));
+value = [];
+(value)? console.log(`${value} is considered true`) : console.log(`${value} is considered false`);
+value = {};
+(value)? console.log(`${value} is considered true`) : console.log(`${value} is considered false`);
+value = 'a string';
+(value)? console.log(`${value} is considered true`) : console.log(`${value} is considered false`);
+value = Infinity;
+(value)? console.log(`${value} is considered true`) : console.log(`${value} is considered false`);
+value = -Infinity;
+(value)? console.log(`${value} is considered true`) : console.log(`${value} is considered false`);
+value = new RegExp();
+(value)? console.log(`${value} is considered true`) : console.log(`${value} is considered false`);

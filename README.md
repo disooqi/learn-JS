@@ -96,3 +96,7 @@ var y = new Number();        // Declares y as a Number object
 var z = new Boolean();       // Declares z as a Boolean object
 ```
 * Avoid `String`, `Number`, and `Boolean` objects. They complicate your code and slow down execution speed.
+
+### Events
+* Event handler attributes:
+  - https://www.w3schools.com/jsref/dom_obj_event.asp

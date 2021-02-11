@@ -5,8 +5,6 @@
 - [ ] dsfdsdfsd
 
 
-
-
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=e-5obm1G_FY" target="_blank">
   <img src="http://img.youtube.com/vi/e-5obm1G_FY/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
@@ -31,7 +29,9 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
   <img src="http://img.youtube.com/vi/PFmuCDHHpwk/0.jpg" 
   alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
 </a>
+
 * Placing scripts at the bottom of the <body> element improves the display speed, because script interpretation slows down the display.
+  
 * The script will behave as if it was located exactly where the <script> tag is located.
 * If you re-declare a JavaScript variable, it will not lose its value.
 * If you put a number in quotes, the rest of the numbers will be treated as strings, and concatenated.

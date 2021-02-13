@@ -101,10 +101,99 @@ var z = new Boolean();       // Declares z as a Boolean object
 * Event handler attributes:
   - https://www.w3schools.com/jsref/dom_obj_event.asp
 
-***
+### Strings
 * You can use single or double quotes to define string literals.
-* If a JavaScript statement does not fit on one line, the best place to break it is after an operator. You can also break up a code line within a text string with a single backslash. The \ method is not the preferred method. It might not have universal support.
-Some browsers do not allow spaces behind the '\' character. A safer way to break up a string, is to use string addition (i.e. concatenation).
-* Note the difference between (x==y) and (x===y). Comparing two JavaScript objects will always return false.
-* Primitive values, like "John Doe", cannot have properties or methods (because they are not objects). But with JavaScript, methods and properties are also available to primitive values, because JavaScript treats primitive values as objects when executing methods and properties.
-* 
+* If a JavaScript statement does not fit on one line, the best place to break it is after an operator. You can also break up a code line within a text string with a single backslash. The `\` method is not the preferred method. It might not have universal support. Some browsers do not allow spaces behind the `\` character. A safer way to break up a string, is to use string addition (i.e. concatenation).
+* Note the difference between `(x==y)` and `(x===y)`. Comparing two JavaScript objects will always return `false`.
+* Primitive values, like "hello world", cannot have properties or methods (because they are not objects). But with JavaScript, methods and properties are also available to primitive values, because JavaScript treats primitive values as objects when executing methods and properties.
+
+```javascript
+var str = "Mohamed Eldesouki; 38 years   "; 
+str.length;
+str.indexOf("desouki"); //  return -1 if the text is not found.
+str.lastIndexOf("o"); // returns the index of the last occurrence of a specified text
+str.search("\d+")
+var new_str = str.slice(10, 19); // returns the extracted part in a new string (end not included). work exactly as Python slicing
+new_str = str.substring(7, 13); // substring() is similar to slice(). The difference is that substring() cannot accept negative indexes.
+new_str = str.substr(7, 13);    // substr()    is similar to slice(). The difference is that the second parameter specifies the length of the extracted part.
+new_str = str.replace("Eldesouki", "Ibrahim"); // does not change the string it is called on. It returns a new string. replaces only the first match, and is case sensitive
+new_str = str.replace(/ELDESOUKI/i, "Ibrahim"); // To replace case insensitive, use a regular expression with an /i flag (insensitive). Note that regular expressions are written without quotes.
+
+new_str = str.concat(" ", text2);
+// To replace all matches, use a regular expression with a /g flag (global match)
+
+```
+* All string methods return a new string. They don't modify the original string. Formally said: Strings are immutable: Strings cannot be changed, only replaced. 
+* You can also use the replace solution above to add a trim function to the JavaScript `String.prototype`
+```javascript
+if (!String.prototype.trim) {
+  String.prototype.trim = function () {
+    return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+  };
+}
+var str = "       Hello World!        ";
+alert(str.trim())
+```
+* For a complete reference, go to w3schools [Complete JavaScript String Reference](https://www.w3schools.com/jsref/jsref_obj_string.asp)
+
+### Numbers
+* JavaScript Numbers are Always 64-bit Floating Point.
+* JavaScript will try to convert strings to numbers in all numeric operations. Except for + operator, it will be used for concatination.
+* `NaN` is a JavaScript reserved word indicating that a number is not a legal number.
+* You can use the global JavaScript function `isNaN()` to find out if a value is a number.
+* If you use `NaN` in a mathematical operation, the result will also be `NaN`. (Or the result might be a concatenation `NaN5`).
+* `NaN` is a `number` i.e. `typeof NaN` returns `number`.
+* `Infinity` (or `-Infinity`) is the value JavaScript will return if you calculate a number outside the largest possible number.
+* Division by 0 (zero) also generates `Infinity`.
+* `Infinity` is a `number` i.e. `typeof Infinity` returns `number`.
+* JavaScript interprets numeric constants as hexadecimal if they are preceded by **0x**.
+* Never write a number with a leading zero (like 07). Some JavaScript versions interpret numbers as octal if they are written with a leading zero.
+* you can use the `toString()` method to output numbers from base 2 to base 36.
+
+### Arrays
+* JavaScript variables can be objects. Arrays are special kinds of objects. Because of this, you can have variables of different types in the same Array. You can have objects in an Array. You can have functions in an Array. You can have arrays in an Array
+* The new keyword only complicates the code. It can also produce some unexpected results:
+```javascript
+var points = new Array();     // Bad
+var points = [];              // Good 
+
+var points = new Array(40, 100, 1, 5, 25, 10); // Bad
+var points = [40, 100, 1, 5, 25, 10];          // Good 
+
+var points = new Array(40, 100);  // Creates an array with two elements (40 and 100)
+var points = new Array(40);  // Creates an array with 40 undefined elements !!!!!
+```
+
+* Looping using foreach:
+```javascript
+var fruits, text;
+fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+fruits.forEach(myFunction);
+
+function myFunction(value) {
+  text += "<li>" + value + "</li>";
+}
+```
+
+* Apending to the array
+```
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+fruits.push("Lemon");    // adds a new element (Lemon) to fruits 
+fruits[fruits.length] = "Lemon";    // adds a new element (Lemon) to fruits
+```
+
+* Adding elements with high indexes can create `undefined` "holes" in an array.
+* If you use named indexes, JavaScript will redefine the array to a standard object. After that, some array methods and properties will produce incorrect results.
+* Arrays are a special kind of objects, with numbered indexes.
+* You should use objects when you want the element names to be strings (text). You should use arrays when you want the element names to be numbers.
+* How to Recognize an Array if `typeof` returns `object` 
+  - To solve this problem ECMAScript 5 defines a new method `Array.isArray()`: `Array.isArray(fruits);   // returns true`
+  - For older browser, you can create your own `isArray()` function as follow: 
+  ```javascript 
+  function isArray(x) {
+  return x.constructor.toString().indexOf("Array") > -1;
+  } 
+  ``` 
+  - The `instanceof` operator returns true if an object is created by a given constructor: `fruits instanceof Array;   // returns true `.

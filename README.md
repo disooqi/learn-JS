@@ -100,3 +100,11 @@ var z = new Boolean();       // Declares z as a Boolean object
 ### Events
 * Event handler attributes:
   - https://www.w3schools.com/jsref/dom_obj_event.asp
+
+***
+* You can use single or double quotes to define string literals.
+* If a JavaScript statement does not fit on one line, the best place to break it is after an operator. You can also break up a code line within a text string with a single backslash. The \ method is not the preferred method. It might not have universal support.
+Some browsers do not allow spaces behind the '\' character. A safer way to break up a string, is to use string addition (i.e. concatenation).
+* Note the difference between (x==y) and (x===y). Comparing two JavaScript objects will always return false.
+* Primitive values, like "John Doe", cannot have properties or methods (because they are not objects). But with JavaScript, methods and properties are also available to primitive values, because JavaScript treats primitive values as objects when executing methods and properties.
+* 

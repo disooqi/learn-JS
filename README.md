@@ -197,3 +197,41 @@ fruits[fruits.length] = "Lemon";    // adds a new element (Lemon) to fruits
   } 
   ``` 
   - The `instanceof` operator returns true if an object is created by a given constructor: `fruits instanceof Array;   // returns true `.
+* Methods: `toString()`, `join()`, `pop()`, `push()`, `shift()`, `unshift()`, `delete fruits[0];`, `splice()`, `concat()`, `slice()`, `sort()`, `reverse()`, `Math.max.apply()`, `Math.min.apply`, 
+* Using `delete` may leave undefined holes in the array. Use pop() or shift() instead.
+```javascript
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 0, "Lemon", "Kiwi"); //in-place change.
+fruits.splice(0, 1);        // Removes the first element of fruits 
+```
+* The concat() method can take any number of array arguments: `var newarray = arr1.concat(arr2, arr3);`
+* The concat() method can also take strings as arguments: `var newarray = arr1.concat("Mariam");`
+* Sorting Array of objects:
+```javascript
+var cars = [
+  {type:"Volvo", year:2016},
+  {type:"Saab", year:2001},
+  {type:"BMW", year:2010}
+];
+cars.sort(function(a, b){return a.year - b.year}); // sort cars based on year
+
+cars.sort(function(a, b){
+  var x = a.type.toLowerCase();
+  var y = b.type.toLowerCase();
+  if (x < y) {return -1;}
+  if (x > y) {return 1;}
+  return 0;
+}); 
+```
+#### Looping Methods
+* `Array.forEach(<a callback function>)`
+* `Array.map(<a callback function>)`
+* `Array.filter(<a callback function>)`
+* `Array.reduce(<a callback function>, [<initial value>])` method runs a function on each array element to produce (reduce it to) a single value.
+* `reduceRight()` vs `reduce()`
+* `Array.every(<a callback function>)`,  check if all array values pass a test.
+* `Array.some(<a callback function>)`, check if some array values pass a test.
+* `Array.indexOf()`
+* `Array.lastIndexOf()`
+* `Array.find()`
+* `Array.findIndex()` 
